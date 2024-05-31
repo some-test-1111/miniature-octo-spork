@@ -16,5 +16,10 @@ jobs:
   
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - run: |
-        echo "Event Sender Type: ${{ github.event.sender.type }}"
+      - name: Display Event Sender Type using GitHub Script
+        uses: actions/github-script@v7
+        with:
+          script: |
+            console.log(`Event Sender Type: ${context.payload.sender.type}`);
+            console.log(context.payload.pull_request.user.login);
+            
