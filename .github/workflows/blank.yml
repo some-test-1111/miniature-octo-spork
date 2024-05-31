@@ -16,4 +16,5 @@ jobs:
   
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - run: echo 1
+      - run: |
+        echo "Event Sender Type: ${{ github.event.sender.type }}"
